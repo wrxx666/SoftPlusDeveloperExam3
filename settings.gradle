@@ -1,0 +1,2 @@
+rootProject.name = "SoftPlusDeveloperExam3"
+include ':app'
