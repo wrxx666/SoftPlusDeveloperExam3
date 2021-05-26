@@ -18,15 +18,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             SharedPreferences mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = mSettings.edit();
             int entranceCount = mSettings.getInt(APP_PREFERENCES_ENTRANCE_COUNT, 0);
             if (entranceCount == 2) {
-                Toast toast = Toast.makeText(getApplicationContext(),
+                Toast toast = Toast.makeText(this,
                         "It's a third entrance",
                         Toast.LENGTH_LONG);
                 toast.show();
             }
             entranceCount++;
+            SharedPreferences.Editor editor = mSettings.edit();
             editor.putInt(APP_PREFERENCES_ENTRANCE_COUNT, entranceCount);
             editor.apply();
             mIncrementedCounter = entranceCount;
