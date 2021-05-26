@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             mIncrementedCounter = entranceCount;
         } else {
             Log.d(LOG_TAG, "Activity restored");
+            mIncrementedCounter = savedInstanceState.getInt("counter");
         }
     }
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onSaveInstanceState(outState);
         if (mIncrementedCounter != null){
-            outState.putInt("count",mIncrementedCounter);
+            outState.putInt("counter",mIncrementedCounter);
             Log.d(LOG_TAG, "current entrance count = "+ mIncrementedCounter);
         } else {
             Log.d(LOG_TAG, "Counter not stored");
