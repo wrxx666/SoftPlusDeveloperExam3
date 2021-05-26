@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mSettings.edit();
         int entranceCount = mSettings.getInt(APP_PREFERENCES_ENTRANCE_COUNT,0);
-        editor.apply();
         if (entranceCount == 2){
             Toast toast = Toast.makeText(getApplicationContext(),
                                 "It's a third entrance",
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         }
         entranceCount++;
         editor.putInt(APP_PREFERENCES_ENTRANCE_COUNT,entranceCount);
-        editor.commit();
+        editor.apply();
 
     }
 }
